@@ -29,7 +29,7 @@ app.post('/api/logout', logout);
 // Create form
 app.post('/api/forms', requiresignin, createForm);
 
-// Create form
+// view forms
 app.get('/api/forms', viewForms);
 
 // Generate form link
