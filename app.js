@@ -4,13 +4,14 @@ const { register, login, logout } = require('./controllers/auth');
 const { createForm, generateLink, viewResponses, deleteResponses, editResponses, createResponse, viewForms } = require('./controllers/forms');
 const { requiresignin } = require('./middlewares/auth');
 const cors = require('cors');
+const env = require('dotenv');
 
 const app = express();
 app.use(express.json());
 app.use(cors()); 
 
 // connect to mongoDB
-mongoose.connect('mongodb+srv://rajpatel1508:Crowley%401508@cluster0.l4cl70a.mongodb.net/Formgenerator?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGO, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
