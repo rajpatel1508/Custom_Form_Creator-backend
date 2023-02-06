@@ -25,6 +25,13 @@ exports.viewForms = async (req, res) => {
     res.status(200).json({ message: 'Forms retrieved successfully', forms });
 };
 
+exports.viewForm = async (req, res) => {
+    const form = await Form.findById(req.params.id);
+    if (!form)
+        return res.status(400).json({ message: 'Form not found' });
+    res.status(200).json({ message: 'Forms retrieved successfully', form });
+};
+
 exports.generateLink = async (req, res) => {
     const form = await Form.findById(req.params.id);
     if (!form)

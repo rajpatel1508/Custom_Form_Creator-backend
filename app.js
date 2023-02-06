@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const { register, login, logout } = require('./controllers/auth');
-const { createForm, generateLink, viewResponses, deleteResponses, editResponses, createResponse, viewForms } = require('./controllers/forms');
+const { createForm, generateLink, viewResponses, deleteResponses, editResponses, createResponse, viewForms, viewForm } = require('./controllers/forms');
 const { requiresignin } = require('./middlewares/auth');
 const cors = require('cors');
 const env = require('dotenv');
@@ -29,6 +29,9 @@ app.post('/api/logout', logout);
 
 // Create form
 app.post('/api/forms', requiresignin, createForm);
+
+// view form
+app.get('/api/form/:id', viewForm);
 
 // view forms
 app.get('/api/forms', viewForms);
