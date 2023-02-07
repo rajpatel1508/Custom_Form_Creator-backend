@@ -41,7 +41,7 @@ app.get('/api/forms', viewForms);
 app.get('/api/forms/:id/link', requiresignin, generateLink);
 
 // Generate response
-app.post('/forms/:id/response', createResponse);
+app.post('/api/forms/response/:id', createResponse);
 
 // View responses
 app.get('/api/forms/:id/responses', requiresignin, viewResponses);
