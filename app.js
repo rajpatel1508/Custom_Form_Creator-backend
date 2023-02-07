@@ -9,6 +9,7 @@ const env = require('dotenv');
 const app = express();
 app.use(express.json());
 app.use(cors()); 
+env.config();
 
 // connect to mongoDB
 mongoose.connect(process.env.MONGO, {
